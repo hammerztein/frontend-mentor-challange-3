@@ -1,0 +1,182 @@
+:root {
+    --clr-primary: hsl(25, 97%, 53%);
+    --clr-neutral-100: 0, 0%, 100%;
+    --clr-neutral-200: 217, 12%, 63%;
+    --clr-neutral-400: 216, 12%, 54%;
+    --clr-neutral-600: 212, 19%, 15%;
+    --clr-neutral-900: 216, 12%, 8%;
+
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    --transition: 0.3s all ease;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+    /* line-height: 1.5; */
+    -webkit-font-smoothing: antialiased;
+}
+html, body {
+    height: 100%;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+/* default paragraph size */
+p {
+    font-size: 15px;
+}
+/* default body */
+body {
+    display: grid;
+    place-content: center;
+    padding: 0 1.5rem;
+    background: hsl(var(--clr-neutral-900));
+    font-family: 'Overpass', sans-serif;
+}
+/* container */
+.rating-container {
+    max-width: 400px;
+    padding: 2.25rem 1.75rem;
+    background: hsl(var(--clr-neutral-600),0.75);
+    border-radius: 20px;
+}
+/* questionnaire */
+.rate {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.rating-svg {
+    width: fit-content;
+    padding: 15px;
+    border-radius: 100%;
+    background: hsl(var(--clr-neutral-400),0.1);
+}
+.rating-title,
+.result-title {
+    font-size: 1.5rem;
+    color: hsl(var(--clr-neutral-100),0.85);
+    font-weight: var(--fw-bold);
+    margin-bottom: 0.85rem;
+}
+.rating-text,
+.result-text {
+    font-size: 15px;
+    color: hsl(var(--clr-neutral-400),0.9);
+}
+.rating-numbers {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+/* rating numbers */
+span[data-number]{
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    height: 45px;
+    border-radius: 100%;
+    background: hsl(var(--clr-neutral-400), 0.1);
+    color: hsl(var(--clr-neutral-400), 0.9);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    transition: var(--transition);
+}
+span[data-number]:is(:hover, :focus){
+    color: hsl(var(--clr-neutral-100));
+    background: var(--clr-primary);
+}
+span[data-number].selected {
+    background: hsl(var(--clr-neutral-400));
+    color: hsl(var(--clr-neutral-100));
+}
+/* buttons */
+.button {
+    padding: 0.5rem 0;
+    border-radius: 100px;
+    border: none;
+    text-transform: uppercase;
+    color: hsl(var(--clr-neutral-100), 0.85);
+    background: var(--clr-primary);
+    font-size: 0.875rem;
+    letter-spacing: 3px;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.button:is(:hover, :focus){
+    background: hsl(var(--clr-neutral-100));
+    color: var(--clr-primary);
+}
+/* result panel */
+.result {
+    text-align: center;
+    display: grid;
+    place-items: center;
+    gap: 1.25rem;
+}
+.result-stars {
+    border-radius: 20px;
+    padding: 0.45rem 1rem 0.25rem;
+    background: hsl(var(--clr-neutral-400), 0.1);
+    color: var(--clr-primary);
+}
+/* utility */
+.hidden {
+    display: none;
+}
